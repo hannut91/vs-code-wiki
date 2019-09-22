@@ -1,52 +1,49 @@
 {
-	"name": "vs-code-wiki",
-	"displayName": "vs-code-wiki",
+  "name": "vs-code-wiki",
+  "displayName": "vs-code-wiki",
   "description": "VS Code Wiki",
   "version": "0.0.1",
   "repository": {
-		"type": "git",
-		"url": "https://github.com/hannut91/vs-code-wiki.git"
+    "type": "git",
+    "url": "https://github.com/hannut91/vs-code-wiki.git"
   },
   "publisher": "Yunseok",
-	"engines": {
-		"vscode": "^1.38.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-		"onCommand:extension.openWiki"
-	],
-	"main": "./out/extension.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "extension.openWiki",
-				"title": "Open Wiki"
-			}
-		]
-	},
-	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"pretest": "npm run compile",
-    "test": "node ./out/test/runTest.js",
+  "engines": {
+    "vscode": "^1.38.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.openWiki"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.openWiki",
+        "title": "Open Wiki"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
     "lint": "node_modules/.bin/tslint -p .",
-    "unittest": "jest"
-	},
-	"devDependencies": {
-		"@types/glob": "^7.1.1",
-		"@types/jest": "^24.0.18",
-		"@types/mocha": "^5.2.6",
-		"@types/node": "^10.12.21",
-		"@types/vscode": "^1.38.0",
-		"glob": "^7.1.4",
-		"jest": "^24.9.0",
-		"mocha": "^6.1.4",
-		"ts-jest": "^24.1.0",
-		"tslint": "^5.12.1",
-		"typescript": "^3.3.1",
-		"vscode-test": "^1.0.2"
-	}
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/jest": "^24.0.18",
+    "@types/node": "^10.12.21",
+    "@types/vscode": "^1.38.0",
+    "glob": "^7.1.4",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.1",
+    "vscode-test": "^1.0.2"
+  }
 }
