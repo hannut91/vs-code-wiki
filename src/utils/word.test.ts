@@ -1,4 +1,4 @@
-import { extractLinkName, containsInLink } from "./word";
+import { extractLinkName, containsInLink } from './word';
 
 test('extract word', () => {
   expect(extractLinkName('[Docker](Docker)')).toBe('Docker');

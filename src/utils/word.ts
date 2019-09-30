@@ -1,4 +1,4 @@
-const linkedTextsRegExp = new RegExp(/\[[a-zA-Z\s]+\]\([[a-zA-Z\s]+\)/g);
+const linkedTextsRegExp = new RegExp(/\[[a-zA-Z\s]+\]\([[a-zA-Z\s.-]+\)/g);
 const linkRegExp = new RegExp(/\(.+\)/);
 
 export const extractLinkName = (text: string): string => {

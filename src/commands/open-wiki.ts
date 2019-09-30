@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 
 import { createWikiDirectory, createIndexFile } from '../utils/file';
-import { basePath, rootFile } from '../config';
+import { rootFile } from '../config';
 
 export const openWiki = async () => {
   try {
