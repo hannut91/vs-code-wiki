@@ -1,8 +1,8 @@
 import * as fs from 'fs';
 import * as util from 'util';
-import * as path from 'path';
 
 import { createWikiDirectory } from './file';
+import { basePath } from '../config';
 
 describe('Create Index Test Suite', () => {
   test('Create VS Code wiki directory', async () => {
@@ -14,7 +14,7 @@ describe('Create Index Test Suite', () => {
 
     try {
       const stat = await util.promisify(fs.stat)(
-        path.join(process.env.HOME || '', 'vscode_wiki'));
+        basePath);
 
       expect(stat.isDirectory()).toBeTruthy();
     } catch (err) {

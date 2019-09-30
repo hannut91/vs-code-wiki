@@ -1,33 +1,16 @@
 import * as vscode from 'vscode';
 
-import { createWikiDirectory, createIndexFile } from './utils/file';
-
-const cmd = 'extension.openWiki';
+import { openWiki } from './commands/open-wiki';
+import { goToWiki } from './commands/go-to-wiki';
 
 export function activate(context: vscode.ExtensionContext) {
-  console.log('Congratulations, your extension "vs-code-wiki" is now active!');
+  context.subscriptions.push(
+    vscode.commands.registerCommand('extension.openWiki', openWiki)
+  );
 
-  const disposable = vscode.commands.registerCommand(cmd, async () => {
-    try {
-      await createWikiDirectory();
-    } catch (err) {
-      // do nothing
-    }
-    
-    try {
-      await createIndexFile();
-    } catch (err) {
-      vscode.window.showInformationMessage(err);
-    }
-
-    const document = await vscode.workspace.openTextDocument(
-      `${process.env.HOME}/vscode_wiki/index.md`
-    );
-
-    await vscode.window.showTextDocument(document, vscode.ViewColumn.Beside);
-  });
-
-  context.subscriptions.push(disposable);
+  context.subscriptions.push(
+    vscode.commands.registerCommand('extension.goToWiki', goToWiki)
+  );
 }
 
 export function deactivate() { }

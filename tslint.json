@@ -9,7 +9,8 @@
 			true,
 			"always"
 		],
-		"triple-equals": true
+    "triple-equals": true,
+    "eofline": true
 	},
 	"defaultSeverity": "warning"
 }
