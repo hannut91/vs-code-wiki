@@ -9,5 +9,5 @@ export const findText = async (path: string, text: string) => {
     throw new Error(result.stderr);
   }
 
-  return result.stdout.split('\n');
+  return result.stdout.split('\n').filter(i => !!i);
 };
