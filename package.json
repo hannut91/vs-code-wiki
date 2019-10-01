@@ -16,7 +16,8 @@
   ],
   "activationEvents": [
     "onCommand:extension.openWiki",
-    "onCommand:extension.goToWiki"
+    "onCommand:extension.goToWiki",
+    "onCommand:extension.searchWiki"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -28,6 +29,10 @@
       {
         "command": "extension.goToWiki",
         "title": "Go to Wiki"
+      },
+      {
+        "command": "extension.searchWiki",
+        "title": "Search Wiki"
       }
     ],
     "keybindings": [

@@ -1,14 +1,9 @@
 import * as vscode from 'vscode';
-import { TextEditor, TextDocument, TextEditorEdit, Range } from 'vscode';
+import { TextEditor, TextEditorEdit, Range } from 'vscode';
 
 import { extractLinkName, containsInLink } from '../utils/word';
-import { basePath } from '../config';
 import { createFile } from '../utils/file';
-
-const isInWikiDir = (document: TextDocument): boolean => (
-  document.fileName.startsWith(basePath) &&
-  document.languageId === 'markdown'
-);
+import { isInWikiDir } from '../helpers/document';
 
 const readCursor = (editor: TextEditor) => {
   let range: Range;
@@ -49,7 +44,7 @@ export const goToWiki = async () => {
     fullText, range.start.character, range.end.character);
   if (!link) {
     editor.edit((editBuilder: TextEditorEdit) => {
-      editBuilder.replace(range, `[${word}](${word})`);
+      editBuilder.replace(range, `[${word}](${word.replace(/\s/g, '-')}.md)`);
     });
     return;
   }
@@ -59,7 +54,7 @@ export const goToWiki = async () => {
   let wikiPath: string;
 
   try {
-    wikiPath = await createFile(`${name}.md`);
+    wikiPath = await createFile(`${name}`);
   } catch (err) {
     vscode.window.showInformationMessage('Fail to create file: ', err);
     return;
