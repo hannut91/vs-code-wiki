@@ -13,7 +13,9 @@ default key shortcut of VS Code.
 * `Open Wiki` Open the Wiki.
 * `Go to Wiki` Go to link. If cursor is in normal text, change text to link. If
   cursor is in link, go to link. default key shortcut is `ctrl+]`.
-* `Search Wiki` Search text in Wiki.
+* `Search Wiki` Search text in Wiki. This command use 
+  [The Silver Searcher](https://github.com/ggreer/the_silver_searcher) 
+  internally.
 
 ## ToDo
 
