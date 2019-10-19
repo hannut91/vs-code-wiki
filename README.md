@@ -3,8 +3,27 @@
 This is VS Code version of wiki management tool, inspired by 
 [vimwiki](https://github.com/vimwiki/vimwiki).
 
-![Demo](https://user-images.githubusercontent.com/14071105/65934389-2291ae00-e450-11e9-8788-fa596173e13d.gif)
+## Features
 
+### Quickly access Wikis from within VS Code.
+
+![open_wiki](https://user-images.githubusercontent.com/14071105/67149284-7de2ed80-f2e4-11e9-8996-90e587a3e5b0.gif)
+
+### Create links quickly and easily.
+
+![go_to_wiki mov](https://user-images.githubusercontent.com/14071105/67149282-7d4a5700-f2e4-11e9-9db5-4c35ef621ea1.gif)
+
+### Quickly search within VS Code.
+
+![search_wiki mov](https://user-images.githubusercontent.com/14071105/67149283-7de2ed80-f2e4-11e9-8119-6b30a0a04fd0.gif)
+
+### Easily export to Jekyll projects.
+
+![export_wiki mov](https://user-images.githubusercontent.com/14071105/67149285-7de2ed80-f2e4-11e9-845e-abc4b4407691.gif)
+
+## Requirements
+
+* [The Silver Searcher](https://github.com/ggreer/the_silver_searcher): `Search Wiki` use this internally.
 
 ## Key bindings
 
@@ -19,12 +38,14 @@ default key shortcut of VS Code.
 * `Search Wiki` Search text in Wiki. This command use 
   [The Silver Searcher](https://github.com/ggreer/the_silver_searcher) 
   internally.
+* `Export Wiki` Copies wiki files to specific directory. Setting is required.
 
 ## ToDo
 
 * Delete Wiki
 * Rename Wiki
 * Go back
+* Go to Wiki and scroll to cursor
 
 ## Sources
 

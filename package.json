@@ -1,6 +1,6 @@
 {
   "name": "vs-code-wiki",
-  "displayName": "vs-code-wiki",
+  "displayName": "VS Code Wiki",
   "description": "VS Code Wiki",
   "version": "0.0.1",
   "repository": {
@@ -15,30 +15,55 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.openWiki",
-    "onCommand:extension.goToWiki",
-    "onCommand:extension.searchWiki"
+    "onCommand:wiki.openWiki",
+    "onCommand:wiki.goToWiki",
+    "onCommand:wiki.searchWiki",
+    "onCommand:wiki.exportWiki"
   ],
   "main": "./out/extension.js",
   "contributes": {
+    "configuration": {
+      "title": "VS Code Wiki",
+      "properties": {
+        "wiki.basePath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to save wiki files. The default path is $HOME/vscode_wiki"
+        },
+        "wiki.targetRootFile": {
+          "type": "string",
+          "default": "",
+          "description": "File path to copy wiki index file when exporting"
+        },
+        "wiki.targetPath": {
+          "type": "string",
+          "default": "",
+          "description": "Directory path to copy wiki files when exporting"
+        }
+      }
+    },
     "commands": [
       {
-        "command": "extension.openWiki",
+        "command": "wiki.openWiki",
         "title": "Open Wiki"
       },
       {
-        "command": "extension.goToWiki",
+        "command": "wiki.goToWiki",
         "title": "Go to Wiki"
       },
       {
-        "command": "extension.searchWiki",
+        "command": "wiki.searchWiki",
         "title": "Search Wiki"
+      },
+      {
+        "command": "wiki.exportWiki",
+        "title": "Export Wiki"
       }
     ],
     "keybindings": [
       {
         "key": "ctrl+]",
-        "command": "extension.goToWiki"
+        "command": "wiki.goToWiki"
       }
     ]
   },
@@ -53,13 +78,16 @@
   "devDependencies": {
     "@types/glob": "^7.1.1",
     "@types/jest": "^24.0.18",
+    "@types/lodash": "^4.14.144",
     "@types/node": "^10.12.21",
     "@types/vscode": "^1.38.0",
     "glob": "^7.1.4",
     "jest": "^24.9.0",
     "ts-jest": "^24.1.0",
     "tslint": "^5.12.1",
-    "typescript": "^3.3.1",
-    "vscode-test": "^1.0.2"
+    "typescript": "^3.3.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
   }
 }
