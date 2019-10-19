@@ -1,4 +1,5 @@
-const linkedTextsRegExp = new RegExp(/\[[a-zA-Z\s]+\]\([[a-zA-Z\s.-]+\)/g);
+export const linkedTextsRegExp =
+  new RegExp(/\[[a-zA-Z\s-]+\]\([[a-zA-Z\s.-]+\)/g);
 const linkRegExp = new RegExp(/\(.+\)/);
 
 export const extractLinkName = (text: string): string => {
@@ -12,11 +13,7 @@ export const extractLinkName = (text: string): string => {
     .replace(/\s/g, '-');
 };
 
-export const containsInLink = (
-  text: string, 
-  start: number, 
-  end: number,
-): string | undefined => {
+export const findLinkedTexts = (text: string) => {
   const links = [];
 
   while (true) {
@@ -31,6 +28,16 @@ export const containsInLink = (
       end: match.index + match[0].length,
     });
   }
+
+  return links;
+};
+
+export const containsInLink = (
+  text: string,
+  start: number,
+  end: number,
+): string | undefined => {
+  const links = findLinkedTexts(text);
 
   const link = links.find(i => i.start <= start && end <= i.end);
   if (link) {
