@@ -44,3 +44,15 @@ export const containsInLink = (
     return link.text;
   }
 };
+
+export const deleteExtname = (text: string) => {
+  const texts = text.split(linkedTextsRegExp);
+
+  const links = findLinkedTexts(text);
+
+  return texts.reduce((acc, cur, index) =>
+    links[index]
+      ? acc + cur + links[index].text.replace('.md', '')
+      : acc + cur
+    , '');
+};

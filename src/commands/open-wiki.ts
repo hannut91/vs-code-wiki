@@ -1,17 +1,17 @@
 import * as vscode from 'vscode';
 
-import { createWikiDirectory, createIndexFile } from '../utils/file';
-import { rootFile } from '../config';
+import { createWikiDirectory, createFile } from '../utils/file';
+import { rootFile, basePath, indexFile } from '../config';
 
 export const openWiki = async () => {
   try {
-    await createWikiDirectory();
+    await createWikiDirectory(basePath);
   } catch (err) {
     // Do nothing
   }
 
   try {
-    await createIndexFile();
+    await createFile(`${basePath}/${indexFile}`);
   } catch (err) {
     vscode.window.showInformationMessage(err);
   }
