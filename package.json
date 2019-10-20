@@ -1,8 +1,8 @@
 {
   "name": "vs-code-wiki",
   "displayName": "VS Code Wiki",
-  "description": "VS Code Wiki",
-  "version": "0.3.0",
+  "description": "Wiki for VS Code",
+  "version": "0.3.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/hannut91/vs-code-wiki.git"
