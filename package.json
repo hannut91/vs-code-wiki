@@ -2,7 +2,7 @@
   "name": "vs-code-wiki",
   "displayName": "VS Code Wiki",
   "description": "Wiki for VS Code",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/hannut91/vs-code-wiki.git"
@@ -19,7 +19,8 @@
     "onCommand:wiki.openWiki",
     "onCommand:wiki.goToWiki",
     "onCommand:wiki.searchWiki",
-    "onCommand:wiki.exportWiki"
+    "onCommand:wiki.exportWiki",
+    "onCommand:wiki.deleteWiki"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -59,6 +60,10 @@
       {
         "command": "wiki.exportWiki",
         "title": "Export Wiki"
+      },
+      {
+        "command": "wiki.deleteWiki",
+        "title": "Delete Wiki"
       }
     ],
     "keybindings": [
