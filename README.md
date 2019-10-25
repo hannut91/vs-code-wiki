@@ -21,6 +21,10 @@ This is VS Code version of wiki management tool, inspired by
 
 ![export_wiki mov](https://user-images.githubusercontent.com/14071105/67149285-7de2ed80-f2e4-11e9-845e-abc4b4407691.gif)
 
+### Delete wiki file.
+
+![delete_wiki mov](https://user-images.githubusercontent.com/14071105/67590374-d6f3cb00-f795-11e9-9130-5b05ad8814aa.gif)
+
 ## Requirements
 
 * [The Silver Searcher](https://github.com/ggreer/the_silver_searcher): `Search Wiki` use this internally.
@@ -42,7 +46,6 @@ default key shortcut of VS Code.
 
 ## ToDo
 
-* Delete Wiki
 * Rename Wiki
 * Go back
 * Go to Wiki and scroll to cursor

@@ -1,9 +1,8 @@
 import * as vscode from 'vscode';
 
-import { openWiki } from './commands/open-wiki';
-import { goToWiki } from './commands/go-to-wiki';
-import { searchWiki } from './commands/search-wiki';
-import { exportWiki } from './commands/export-wiki';
+import {
+  openWiki, goToWiki, searchWiki, exportWiki, deleteWiki
+} from './commands';
 
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
@@ -20,6 +19,10 @@ export function activate(context: vscode.ExtensionContext) {
 
   context.subscriptions.push(
     vscode.commands.registerCommand('wiki.exportWiki', exportWiki)
+  );
+
+  context.subscriptions.push(
+    vscode.commands.registerCommand('wiki.deleteWiki', deleteWiki)
   );
 }
 
