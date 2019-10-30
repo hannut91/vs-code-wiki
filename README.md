@@ -9,7 +9,7 @@ This is VS Code version of wiki management tool, inspired by
 
 ![open_wiki](https://user-images.githubusercontent.com/14071105/67149284-7de2ed80-f2e4-11e9-8996-90e587a3e5b0.gif)
 
-### Create links quickly and easily.
+### Create links quickly and handy.
 
 ![go_to_wiki mov](https://user-images.githubusercontent.com/14071105/67149282-7d4a5700-f2e4-11e9-9db5-4c35ef621ea1.gif)
 
@@ -23,7 +23,7 @@ This is VS Code version of wiki management tool, inspired by
 
 ### Delete wiki file.
 
-![delete_wiki mov](https://user-images.githubusercontent.com/14071105/67590374-d6f3cb00-f795-11e9-9130-5b05ad8814aa.gif)
+![delete_wiki mov](https://user-images.githubusercontent.com/14071105/67836768-d01bde00-fb30-11e9-857f-2f31a997d294.gif)
 
 ## Requirements
 
@@ -46,6 +46,7 @@ default key shortcut of VS Code.
 
 ## ToDo
 
+* Backup before delete
 * Rename Wiki
 * Go back
 * Go to Wiki and scroll to cursor
