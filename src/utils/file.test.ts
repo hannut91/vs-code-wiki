@@ -19,6 +19,7 @@ describe('File', () => {
     await Promise.all(
       files
         .filter(i => i.isFile())
+        .filter(i => i.name !== '.gitkeep')
         .map(i => promises.unlink(`${targetPath}/${i.name}`))
     );
   });

@@ -43,10 +43,10 @@ default key shortcut of VS Code.
   [The Silver Searcher](https://github.com/ggreer/the_silver_searcher) 
   internally.
 * `Export Wiki` Copies wiki files to specific directory. Setting is required.
+* `Delete Wiki` Deletes wiki file. Deleted files are backed up in the `backup` directory.
 
 ## ToDo
 
-* Backup before delete
 * Rename Wiki
 * Go back
 * Go to Wiki and scroll to cursor
