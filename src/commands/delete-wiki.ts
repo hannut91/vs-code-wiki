@@ -2,6 +2,7 @@ import { promises } from 'fs';
 import { window } from 'vscode';
 
 import { basePath, indexFile } from '../config';
+import { backup } from '../services/backup.service';
 
 export const deleteWiki = async () => {
   const files = (await promises.readdir(basePath, { withFileTypes: true }))
@@ -34,7 +35,8 @@ export const deleteWiki = async () => {
   if (!answer) {
     return;
   }
-
+  
+  await backup(basePath, selectedFile);
   await promises.unlink(`${basePath}/${selectedFile}`);
   return;
 };

@@ -2,7 +2,7 @@
   "name": "vs-code-wiki",
   "displayName": "VS Code Wiki",
   "description": "Wiki for VS Code",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/hannut91/vs-code-wiki.git"
@@ -82,16 +82,18 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@types/glob": "^7.1.1",
     "@types/jest": "^24.0.18",
     "@types/lodash": "^4.14.144",
+    "@types/moment": "^2.13.0",
     "@types/node": "^10.12.21",
     "@types/vscode": "^1.38.0",
-    "glob": "^7.1.4",
     "jest": "^24.9.0",
     "ts-jest": "^24.1.0",
     "tslint": "^5.12.1",
-    "typescript": "^3.3.1",
+    "typescript": "^3.3.1"
+  },
+  "dependencies": {
+    "moment": "^2.24.0",
     "lodash": "^4.17.15"
   }
 }
