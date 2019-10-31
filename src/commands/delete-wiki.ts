@@ -15,6 +15,13 @@ export const deleteWiki = async () => {
     return;
   }
 
+  const content = (await promises.readFile(
+    `${basePath}/${selectedFile}`)).toString();
+  if (!content) {
+    await promises.unlink(`${basePath}/${selectedFile}`);
+    return;
+  }
+
   const answer = await window.showInputBox({
     placeHolder: 'Please type \'yes\' if you want to delete it.',
     prompt: `Delete ${basePath}/${selectedFile}`,
@@ -29,4 +36,5 @@ export const deleteWiki = async () => {
   }
 
   await promises.unlink(`${basePath}/${selectedFile}`);
+  return;
 };
