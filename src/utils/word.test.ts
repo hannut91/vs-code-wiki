@@ -1,4 +1,6 @@
-import { extractLinkName, containsInLink, deleteExtname } from './word';
+import {
+  extractLinkName, containsInLink, deleteExtname, findLinkedTexts
+} from './word';
 
 test('extract word', () => {
   expect(extractLinkName('[Docker](Docker)')).toBe('Docker');
@@ -21,4 +23,14 @@ test('deleteExtname', () => {
       'Install [Docker](Docker.md) with [Homebrew](Homebrew.md) test.md'
     )
   ).toBe('Install [Docker](Docker) with [Homebrew](Homebrew) test.md');
+});
+
+test('findLinkedTexts', () => {
+  expect(findLinkedTexts('[TestLink](TestLink.md)')).toEqual(
+    [{start: 0, end: 23, text: '[TestLink](TestLink.md)'}]
+  );
+
+  expect(findLinkedTexts('[Test2Link](Test2Link.md)')).toEqual(
+    [{start: 0, end: 25, text: '[Test2Link](Test2Link.md)'}]
+  );
 });
