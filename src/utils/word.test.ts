@@ -26,11 +26,19 @@ test('deleteExtname', () => {
 });
 
 test('findLinkedTexts', () => {
-  expect(findLinkedTexts('[TestLink](TestLink.md)')).toEqual(
-    [{start: 0, end: 23, text: '[TestLink](TestLink.md)'}]
-  );
+  expect(findLinkedTexts('[TestLink](TestLink.md)'))
+    .toEqual([{ start: 0, end: 23, text: '[TestLink](TestLink.md)' }]);
 
-  expect(findLinkedTexts('[Test2Link](Test2Link.md)')).toEqual(
-    [{start: 0, end: 25, text: '[Test2Link](Test2Link.md)'}]
-  );
+  expect(findLinkedTexts('[Test2Link](Test2Link.md)'))
+    .toEqual([{ start: 0, end: 25, text: '[Test2Link](Test2Link.md)' }]);
+
+  expect(findLinkedTexts('[한글테스트](한글테스트.md)'))
+    .toEqual([{ start: 0, end: 17, text: '[한글테스트](한글테스트.md)' }]);
+
+  expect(findLinkedTexts('[한글AndEnglish1234](한글AndEnglish1234.md)'))
+    .toEqual([{
+      start: 0,
+      end: 39,
+      text: '[한글AndEnglish1234](한글AndEnglish1234.md)'
+    }]);
 });
