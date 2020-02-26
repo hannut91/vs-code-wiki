@@ -1,10 +1,12 @@
+import { join } from 'path';
+
 import * as vscode from 'vscode';
 import { TextEditor, TextEditorEdit, Range } from 'vscode';
 
 import { extractLinkName, containsInLink } from '../utils/word';
 import { createFile } from '../utils/file';
 import { isInWikiDir } from '../helpers/document';
-import { basePath } from '../config';
+import { getBasePath } from '../config';
 
 const readCursor = (editor: TextEditor) => {
   let range: Range;
@@ -55,7 +57,8 @@ export const goToWiki = async () => {
   let wikiPath: string;
 
   try {
-    wikiPath = await createFile(`${basePath}/${name}`);
+    const basePath = getBasePath();
+    wikiPath = await createFile(join(basePath, name));
   } catch (err) {
     vscode.window.showInformationMessage('Fail to create file: ', err);
     return;

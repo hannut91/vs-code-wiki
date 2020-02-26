@@ -1,12 +1,15 @@
+import { join } from 'path';
+
 import {
   window, workspace, QuickPickItem, Position, ViewColumn, Selection
 } from 'vscode';
 
-import { basePath } from '../config';
+import { getBasePath } from '../config';
 import { findText } from '../utils/ag';
 import { isInWikiDir } from '../helpers/document';
 
 export const searchWiki = async () => {
+  const basePath = getBasePath();
   const quickPick = window.createQuickPick<QuickPickItem>();
 
   quickPick.onDidChangeValue(async (value: any) => {
@@ -35,8 +38,7 @@ export const searchWiki = async () => {
     const line = parseInt(results[1], 10);
     const position = new Position(line - 1, 0);
 
-    const document = await workspace.openTextDocument(
-      `${basePath}/${fileName}`);
+    const document = await workspace.openTextDocument(join(basePath, fileName));
 
     let viewColumn = ViewColumn.Beside;
     const activeDitor = window.activeTextEditor;

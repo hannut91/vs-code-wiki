@@ -5,9 +5,8 @@ import { deleteExtname } from './word';
 
 const frontMatterLineRegExp = new RegExp(/---/g);
 
-export const createWikiDirectory = (path: string) => {
-  return promises.mkdir(path, { recursive: false });
-};
+export const createWikiDirectory = (path: string) =>
+  promises.mkdir(path, { recursive: false });
 
 export const createIndexFile = async (): Promise<string> =>
   await createFile('index.md');
