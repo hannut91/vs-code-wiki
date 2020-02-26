@@ -1,10 +1,13 @@
 import { promises } from 'fs';
 import { window } from 'vscode';
+import { join } from 'path';
 
-import { basePath, indexFile } from '../config';
+import { getBasePath, indexFile } from '../config';
 import { backup } from '../services/backup.service';
 
 export const deleteWiki = async () => {
+  const basePath = getBasePath();
+
   const files = (await promises.readdir(basePath, { withFileTypes: true }))
     .filter(i => i.isFile())
     .map(i => i.name)
@@ -16,16 +19,17 @@ export const deleteWiki = async () => {
     return;
   }
 
-  const content = (await promises.readFile(
-    `${basePath}/${selectedFile}`)).toString();
+  const filePath = join(basePath, selectedFile);
+
+  const content = (await promises.readFile(filePath)).toString();
   if (!content) {
-    await promises.unlink(`${basePath}/${selectedFile}`);
+    await promises.unlink(filePath);
     return;
   }
 
   const answer = await window.showInputBox({
     placeHolder: 'Please type \'yes\' if you want to delete it.',
-    prompt: `Delete ${basePath}/${selectedFile}`,
+    prompt: `Delete ${filePath}`,
     validateInput: (value: string) => {
       if (value.toLowerCase() !== 'yes') {
         return 'You can type only \'yes\'.';
@@ -37,6 +41,6 @@ export const deleteWiki = async () => {
   }
   
   await backup(basePath, selectedFile);
-  await promises.unlink(`${basePath}/${selectedFile}`);
+  await promises.unlink(filePath);
   return;
 };
