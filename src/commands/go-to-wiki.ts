@@ -33,7 +33,7 @@ const readCursor = (editor: TextEditor) => {
 export const goToWiki = async () => {
   const editor = vscode.window.activeTextEditor;
   if (!editor) {
-    vscode.window.showInformationMessage('Selectd editor is not exist');
+    vscode.window.showInformationMessage('Current window is not and editor window.');
     return;
   }
 
