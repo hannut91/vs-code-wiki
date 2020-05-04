@@ -1,16 +1,18 @@
 import { promises } from 'fs';
+import { join } from 'path';
 
 import {
   copyFile,
   extractFrontMatter,
-  createWikiDirectory
+  createWikiDirectory,
+  createFile,
 } from './file';
 
 const basePath = `${process.env.HOME}/vscode_wiki`;
-const targetPath = __dirname +'/../../fixtures/target';
+const targetPath = `${__dirname}/../../fixtures/target`;
 const targetIndexFile = 'Wiki.md';
-const wikiPath = __dirname + '/../../fixtures/wiki';
-const wikiIndexFile = `index.md`;
+const wikiPath = `${__dirname}/../../fixtures/wiki`;
+const wikiIndexFile = 'index.md';
 
 describe('File', () => {
   beforeEach(async () => {
@@ -18,9 +20,9 @@ describe('File', () => {
 
     await Promise.all(
       files
-        .filter(i => i.isFile())
-        .filter(i => i.name !== '.gitkeep')
-        .map(i => promises.unlink(`${targetPath}/${i.name}`))
+        .filter((i) => i.isFile())
+        .filter((i) => i.name !== '.gitkeep')
+        .map((i) => promises.unlink(`${targetPath}/${i.name}`)),
     );
   });
 
@@ -31,13 +33,9 @@ describe('File', () => {
       // Do nothing
     }
 
-    try {
-      const stat = await promises.stat(basePath);
+    const stat = await promises.stat(basePath);
 
-      expect(stat.isDirectory()).toBeTruthy();
-    } catch (err) {
-      expect(err).toBeFalsy();
-    }
+    expect(stat.isDirectory()).toBeTruthy();
   });
 
   describe('copyFile', () => {
@@ -67,6 +65,39 @@ title: Wiki
       const frontMatter = extractFrontMatter(data);
 
       expect(frontMatter).toBe(originFrontMatter);
+    });
+  });
+
+  describe('createFile', () => {
+    let fileName = '';
+
+    describe('with only file name', () => {
+      beforeEach(() => {
+        fileName = 'test.md';
+      });
+      it('creates file to path', async () => {
+        const path = join(targetPath, fileName);
+        await createFile(path);
+
+        const s = await promises.stat(path);
+
+        expect(s).toBeTruthy();
+      });
+    });
+
+    describe('with file name has subdirectory path', () => {
+      beforeEach(() => {
+        fileName = 'apple/apple.md';
+      });
+
+      it('creates file to path', async () => {
+        const path = join(targetPath, fileName);
+        await createFile(path);
+
+        const s = await promises.stat(path);
+
+        expect(s).toBeTruthy();
+      });
     });
   });
 });

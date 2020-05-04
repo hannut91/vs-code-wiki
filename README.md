@@ -38,7 +38,7 @@ default key shortcut of VS Code.
 
 * `Open Wiki` Open the Wiki.
 * `Go to Wiki` Go to link. If cursor is in normal text, change text to link. If
-  cursor is in link, go to link. default key shortcut is `ctrl+]`.
+  cursor is in link, go to link. default key shortcut is `ctrl+]`. If you execute this command from the link `[apple] (apple /)`, create a subdirectory and go to the `index.md` file. If not, it creates a file. If you create a link in the subdirectory and create a file, the file is created in the subdirectory. For example If you create the link `[apple] (apple.md)` in the `apple` subdirectory, the file is created in` apple / apple.md`.
 * `Search Wiki` Search text in Wiki. This command use 
   [The Silver Searcher](https://github.com/ggreer/the_silver_searcher) 
   internally.

@@ -3,11 +3,12 @@ import * as util from 'util';
 
 export const findText = async (path: string, text: string) => {
   const result = await util.promisify(exec)(
-    `(cd ${path};ag -i ${text})`);
+    `(cd ${path};ag -i ${text})`,
+  );
 
   if (result.stderr) {
     throw new Error(result.stderr);
   }
 
-  return result.stdout.split('\n').filter(i => !!i);
+  return result.stdout.split('\n').filter((i) => !!i);
 };

@@ -18,12 +18,12 @@ export const exportWiki = async () => {
 
   const basePath = getBasePath();
   const files = (await promises.readdir(basePath, { withFileTypes: true }))
-    .filter(i => i.isFile())
-    .filter(i => i.name !== indexFile)
-    .map(i => i.name);
+    .filter((i) => i.isFile())
+    .filter((i) => i.name !== indexFile)
+    .map((i) => i.name);
 
   await Promise.all(
-    files.map(i => copyFile(join(basePath, i), join(targetPath || '', i)))
+    files.map((i) => copyFile(join(basePath, i), join(targetPath || '', i))),
   );
 
   const rootFile = getRootFile();

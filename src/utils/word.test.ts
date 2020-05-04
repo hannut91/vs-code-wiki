@@ -1,5 +1,5 @@
 import {
-  extractLinkName, containsInLink, deleteExtname, findLinkedTexts
+  extractLinkName, containsInLink, deleteExtname, findLinkedTexts,
 } from './word';
 
 test('extract word', () => {
@@ -20,8 +20,8 @@ test('containsInLink', () => {
 test('deleteExtname', () => {
   expect(
     deleteExtname(
-      'Install [Docker](Docker.md) with [Homebrew](Homebrew.md) test.md'
-    )
+      'Install [Docker](Docker.md) with [Homebrew](Homebrew.md) test.md',
+    ),
   ).toBe('Install [Docker](Docker) with [Homebrew](Homebrew) test.md');
 });
 
@@ -39,6 +39,13 @@ test('findLinkedTexts', () => {
     .toEqual([{
       start: 0,
       end: 39,
-      text: '[한글AndEnglish1234](한글AndEnglish1234.md)'
+      text: '[한글AndEnglish1234](한글AndEnglish1234.md)',
+    }]);
+
+  expect(findLinkedTexts('[apple](apple/apple.md)'))
+    .toEqual([{
+      start: 0,
+      end: 23,
+      text: '[apple](apple/apple.md)',
     }]);
 });

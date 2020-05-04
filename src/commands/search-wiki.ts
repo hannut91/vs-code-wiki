@@ -1,7 +1,7 @@
 import { join } from 'path';
 
 import {
-  window, workspace, QuickPickItem, Position, ViewColumn, Selection
+  window, workspace, Position, ViewColumn, Selection, QuickPickItem,
 } from 'vscode';
 
 import { getBasePath } from '../config';
@@ -20,7 +20,7 @@ export const searchWiki = async () => {
     try {
       const texts = await findText(basePath, value);
 
-      quickPick.items = texts.map(i => ({ label: i }));
+      quickPick.items = texts.map((i) => ({ label: i }));
     } catch (err) {
       if (err.code === 1) {
         // Do nothing. If nothing is found, a command fail error occurs.
@@ -42,7 +42,7 @@ export const searchWiki = async () => {
 
     let viewColumn = ViewColumn.Beside;
     const activeDitor = window.activeTextEditor;
-    if (activeDitor && isInWikiDir(activeDitor.document)) {
+    if (activeDitor && isInWikiDir(activeDitor.document, basePath)) {
       viewColumn = ViewColumn.Active;
     }
     const editor = await window.showTextDocument(document, viewColumn);
