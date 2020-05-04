@@ -2,7 +2,7 @@
   "name": "vs-code-wiki",
   "displayName": "VS Code Wiki",
   "description": "Wiki for VS Code",
-  "version": "0.4.8",
+  "version": "0.4.9",
   "repository": {
     "type": "git",
     "url": "https://github.com/hannut91/vs-code-wiki.git"
@@ -78,7 +78,7 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile",
-    "lint": "node_modules/.bin/tslint -p .",
+    "lint": "eslint 'src/**/*.ts'",
     "test": "jest"
   },
   "devDependencies": {
@@ -87,9 +87,14 @@
     "@types/moment": "^2.13.0",
     "@types/node": "^10.12.21",
     "@types/vscode": "^1.38.0",
-    "jest": "^24.9.0",
-    "ts-jest": "^24.1.0",
-    "tslint": "^5.12.1",
+    "@typescript-eslint/eslint-plugin": "^2.30.0",
+    "@typescript-eslint/parser": "^2.30.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.8.2",
+    "jest": "^25.5.4",
+    "ts-jest": "^25.4.0",
     "typescript": "^3.3.1"
   },
   "dependencies": {

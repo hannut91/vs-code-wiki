@@ -9,10 +9,10 @@ export const deleteWiki = async () => {
   const basePath = getBasePath();
 
   const files = (await promises.readdir(basePath, { withFileTypes: true }))
-    .filter(i => i.isFile())
-    .map(i => i.name)
-    .filter(i => i !== indexFile)
-    .filter(i => i.indexOf('.md') >= 0);
+    .filter((i) => i.isFile())
+    .map((i) => i.name)
+    .filter((i) => i !== indexFile)
+    .filter((i) => i.indexOf('.md') >= 0);
 
   const selectedFile = await window.showQuickPick(files);
   if (!selectedFile) {
@@ -30,17 +30,15 @@ export const deleteWiki = async () => {
   const answer = await window.showInputBox({
     placeHolder: 'Please type \'yes\' if you want to delete it.',
     prompt: `Delete ${filePath}`,
-    validateInput: (value: string) => {
-      if (value.toLowerCase() !== 'yes') {
-        return 'You can type only \'yes\'.';
-      }
-    }
+    validateInput: (value: string) => (
+      value.toLowerCase() === 'yes'
+        ? undefined : 'You can type only \'yes\'.'
+    ),
   });
   if (!answer) {
     return;
   }
-  
+
   await backup(basePath, selectedFile);
   await promises.unlink(filePath);
-  return;
 };

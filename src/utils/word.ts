@@ -1,5 +1,4 @@
-export const linkedTextsRegExp =
-  new RegExp(/\[[a-zA-Z0-9가-힣\s-]+\]\([[a-zA-Z0-9가-힣\s.-]+\)/g);
+export const linkedTextsRegExp = new RegExp(/\[[a-zA-Z0-9가-힣\s-/]+\]\([[a-zA-Z0-9가-힣\s.-/]+\)/g);
 const linkRegExp = new RegExp(/\(.+\)/);
 
 export const extractLinkName = (text: string): string => {
@@ -37,22 +36,15 @@ export const containsInLink = (
   start: number,
   end: number,
 ): string | undefined => {
-  const links = findLinkedTexts(text);
-
-  const link = links.find(i => i.start <= start && end <= i.end);
-  if (link) {
-    return link.text;
-  }
+  const link = findLinkedTexts(text)
+    .find((i) => i.start <= start && end <= i.end);
+  return link ? link.text : undefined;
 };
 
 export const deleteExtname = (text: string) => {
-  const texts = text.split(linkedTextsRegExp);
-
   const links = findLinkedTexts(text);
 
-  return texts.reduce((acc, cur, index) =>
-    links[index]
-      ? acc + cur + links[index].text.replace('.md', '')
-      : acc + cur
-    , '');
+  return text.split(linkedTextsRegExp)
+    .reduce((acc, cur, index) => acc + cur + (links[index] ? links[index].text.replace('.md', '') : ''),
+      '');
 };
