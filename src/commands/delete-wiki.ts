@@ -11,7 +11,7 @@ export const deleteWiki = async () => {
   const files = (await promises.readdir(basePath, { withFileTypes: true }))
     .filter((i) => i.isFile())
     .map((i) => i.name)
-    .filter((i) => i !== indexFile)
+    .filter((i) => i !== indexFile())
     .filter((i) => i.indexOf('.md') >= 0);
 
   const selectedFile = await window.showQuickPick(files);

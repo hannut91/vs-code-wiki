@@ -32,6 +32,11 @@
           "default": "",
           "description": "Path to save wiki files. The default path is $HOME/vscode_wiki"
         },
+        "wiki.baseRootFile": {
+          "type": "string",
+          "default": "",
+          "description": "The file where the navigation into the wiki starts (basically the wiki entry file)."
+        },
         "wiki.targetRootFile": {
           "type": "string",
           "default": "",
