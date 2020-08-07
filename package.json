@@ -2,7 +2,7 @@
   "name": "vs-code-wiki",
   "displayName": "VS Code Wiki",
   "description": "Wiki for VS Code",
-  "version": "0.4.9",
+  "version": "0.5.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/hannut91/vs-code-wiki.git"
@@ -103,7 +103,7 @@
     "typescript": "^3.3.1"
   },
   "dependencies": {
-    "moment": "^2.24.0",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.19",
+    "moment": "^2.24.0"
   }
 }
