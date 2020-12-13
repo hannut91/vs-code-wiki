@@ -18,8 +18,8 @@ import { isInWikiDir } from '../helpers/document';
 import { getBasePath } from '../config';
 
 const readCursor = ({ selection, document }: {
-  selection: Selection,
-  document: TextDocument,
+  selection: Selection;
+  document: TextDocument;
 }) => {
   let range: Range;
 
