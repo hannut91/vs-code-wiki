@@ -14,7 +14,7 @@ export const backup = async (
   }
 
   const originFile = join(basepath, filename);
-  const date = moment().format('YYYY-MM-DD_HH:mm:ss_');
+  const date = moment().format('YYYY-MM-DD_HH-mm-ss_');
   const backupFile = join(backupDir, date + filename);
   await promises.copyFile(originFile, backupFile);
 
