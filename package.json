@@ -40,7 +40,7 @@
         "wiki.baseRootOpenAsFolder": {
           "type": "boolean",
           "default": "",
-          "description": "Open the whole folder containing the base file."
+          "description": "Open the entire folder containing the base file as a workspace."
         },
         "wiki.targetRootFile": {
           "type": "string",
