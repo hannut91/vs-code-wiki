@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 
 import { createWikiDirectory, createFile } from '../utils/file';
-import { getRootFile, getBasePath, getOpenRootFileFolder } from '../config';
+import { getRootFile, getBasePath, getOpenBasePathAsWorkspace } from '../config';
 
 export const openWiki = async () => {
   const basePath = getBasePath();
@@ -20,10 +20,10 @@ export const openWiki = async () => {
     return;
   }
 
-  const openRootFileFolder = getOpenRootFileFolder();
-  const openRootFileFolderUri = vscode.Uri.file(basePath);
-  if (openRootFileFolder) {
-    await vscode.commands.executeCommand('vscode.openFolder', openRootFileFolderUri);
+  const openBasePathAsWorkspace = getOpenBasePathAsWorkspace();
+  const basePathUri = vscode.Uri.file(basePath);
+  if (openBasePathAsWorkspace) {
+    await vscode.commands.executeCommand('vscode.openFolder', basePathUri, false);
   }
 
   const document = await vscode.workspace.openTextDocument(rootFile);
