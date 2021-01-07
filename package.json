@@ -37,6 +37,11 @@
           "default": "",
           "description": "The file where the navigation into the wiki starts (basically the wiki entry file)."
         },
+        "wiki.baseRootOpenAsFolder": {
+          "type": "boolean",
+          "default": "",
+          "description": "Open the whole folder containing the base file."
+        },
         "wiki.targetRootFile": {
           "type": "string",
           "default": "",

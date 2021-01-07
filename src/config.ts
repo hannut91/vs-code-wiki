@@ -9,6 +9,8 @@ export const indexFile = () => configuration().get<string>('baseRootFile') || 'i
 export const getBasePath = () => configuration().get<string>('basePath')
   || join(homedir(), 'vscode_wiki');
 
+export const getOpenRootFileFolder = () => configuration().get<boolean>('baseRootOpenAsFolder') || false;
+
 export const getRootFile = () => join(getBasePath(), indexFile());
 
 export const getTargetRootFile = () => configuration().get<string>('targetRootFile');
