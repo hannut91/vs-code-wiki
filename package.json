@@ -37,6 +37,11 @@
           "default": "",
           "description": "The file where the navigation into the wiki starts (basically the wiki entry file)."
         },
+        "wiki.openBasePathAsWorkspace": {
+          "type": "boolean",
+          "default": false,
+          "description": "Open the entire folder containing the base file as a workspace."
+        },
         "wiki.targetRootFile": {
           "type": "string",
           "default": "",
