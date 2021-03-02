@@ -23,12 +23,8 @@ export const createIndexFile = async (): Promise<string> => await createFile('in
 export const extractFrontMatter = (content: string) => {
   const boundaries = [];
 
-  while (true) {
-    const match = frontMatterLineRegExp.exec(content);
-    if (!match) {
-      break;
-    }
-
+  let match;
+  while ((match = frontMatterLineRegExp.exec(content)) !== null) {
     boundaries.push(match.index);
   }
 

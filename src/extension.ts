@@ -25,5 +25,3 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.commands.registerCommand('wiki.deleteWiki', deleteWiki),
   );
 }
-
-export function deactivate() { }

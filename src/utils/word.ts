@@ -15,12 +15,8 @@ export const extractLinkName = (text: string): string => {
 export const findLinkedTexts = (text: string) => {
   const links = [];
 
-  while (true) {
-    const match = linkedTextsRegExp.exec(text);
-    if (!match) {
-      break;
-    }
-
+  let match;
+  while ((match = linkedTextsRegExp.exec(text)) !== null) {
     links.push({
       text: match[0],
       start: match.index,

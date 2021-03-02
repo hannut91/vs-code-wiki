@@ -3,35 +3,20 @@ module.exports = {
     es6: true,
     node: true,
   },
+  root: true,
+  parser: "@typescript-eslint/parser",
+  plugins: ["@typescript-eslint", "jest"],
   extends: [
-    'airbnb-base',
-    'plugin:jest/recommended',
-  ],
-  globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
-  },
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaVersion: 2018,
-    sourceType: 'module',
-  },
-  plugins: [
-    '@typescript-eslint',
-    'jest',
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jest/recommended",
   ],
   rules: {
-    "import/extensions": 0,
-    "no-return-await": 0,
-    "import/prefer-default-export": 1,
-    "import/no-unresolved": 1,
-    "@typescript-eslint/no-unused-vars": ["error"]
-  },
-  settings: {
-    "import/resolver": {
-      node: {
-        extensions: [".js", ".jsx", ".ts", ".tsx"]
-      }
-    }
+    semi: [2, "always"],
+    "@typescript-eslint/no-unused-vars": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/explicit-function-return-type": 0, // TODO add return types
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "@typescript-eslint/no-non-null-assertion": 0,
   },
 };
